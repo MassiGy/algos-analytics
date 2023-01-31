@@ -1,0 +1,74 @@
+/**
+     * This is the second version of the couting sort,
+     * 
+     * In this version we will also use and construct the occurenceStore.
+     * 
+     * In this version, the occurenceStore will be an ArraySort Object with a
+     * size equal to the value of the max of the element set + 1. Also, we will
+     * construct it
+     * by traversing linearly the elements set as on the previous.
+     * 
+     * We will store the occurences as ids, and we will keep track of the positions
+     * on the content attribute in such a way
+     * that we can save all the occurences's indecies.
+     * 
+     * 
+     * To do that, we will use some math, but nothing crazy.
+     * 
+     * Imagine a scenario where our input list has two occurences of the
+     * id = 20, one at the index = 1, and the other at the index = 3
+     * 
+     * so on the 21^th slot of our occurence which holds an Element object.
+     * We will at first store the occrence on the id.
+     * So we will write 1 to this attribute
+     * and we will add to the content the value of indexof(element) == 1 *
+     * 10^(element.id-1)
+     * 
+     * so now the 21^th element on the occurence store contains an id = 1, and a
+     * content = 1
+     * 
+     * Now, let's suppose that we actually arrive at the index = 3 of our input list
+     * where the next occurence of 20
+     * resides.
+     * 
+     * So we will go back to the 21^th slot of our occurenceStore and add to the id
+     * a value of 1, so it will be 2
+     * and add to the content a value indexof(element on the input list) == 3 *
+     * 10^(element.id - 1), which
+     * will give us the value 30
+     * 
+     * so now the 21^th element on the occurenceStore contains an id = 2, and a
+     * content = 31
+     * 
+     * by decomposing the content ( deviding by 10), we can retreive the indecies of
+     * the element having a id = 20 on
+     * our input list.
+     * 
+     */
+
+     /*** Note very optimized */
+
+    // public void bubbleSort() {
+
+    // boolean swap = true;
+    // int j = 0;
+    // Element temp;
+
+    // for (int i = 0 ; i < this.size && swap ; i++) {
+    // swap = false;
+    // j = 0;
+    // while (j < this.size - 1 - i) {
+
+    // if (this.array[j + 1].getId() < this.array[j].getId()) {
+    // swap them
+    // temp = this.array[j+1];
+    // this.array[j+1] = this.array[j];
+    // this.array[j] = temp;
+
+    // set the swap flag to true
+    // swap = true;
+    // }
+    // j++;
+    // }
+    // }
+    // }
