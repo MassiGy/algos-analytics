@@ -1,38 +1,24 @@
 
 public class Element {
 
-    private int id;
-    private Double content;
+    public int id;
+    public Double content;
 
-    // Builder
+    // Constructor
     public Element(Double content) {
-
-        this.id = (int) (Math.random() * 1000000);
+        /**
+         * NOTE: do not make the random numbers interval huge when using the
+         * countingSort
+         * to avoid having to declare and occurence store with a huge length
+         */
+        this.id = (int) (Math.random() * 1000);
         this.content = content;
-    }
-
-    // Getters
-    public int getId() {
-        return this.id;
-    }
-
-    public Double getContent() {
-        return this.content;
-    }
-
-    // Setters
-    public void setId(int newId) {
-        this.id = newId;
-    }
-
-    public void setContent(Double newContent) {
-        this.content = newContent;
     }
 
     // toString
     public String toString() {
         String res;
-        res = "[ ID : " + this.getId() + "\tContent : " + this.getContent() + " ]";
+        res = "[ ID : " + this.id + "\tContent : " + this.content + "\t]";
         return res;
     }
 }

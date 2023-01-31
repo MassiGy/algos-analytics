@@ -31,15 +31,19 @@ public class ArraySort {
         this.array = new Element[this.size];
 
         for (int i = 0; i < this.size; i++) {
-            this.array[i] = new Element(list.array[i].getContent());
-            this.array[i].setId(list.array[i].getId());
+            this.array[i] = new Element(list.array[i].content);
+            this.array[i].id = list.array[i].id;
         }
     }
 
     public void initArrayRand() {
 
         for (int i = 0; i < this.size; i++) {
-            this.array[i] = new Element((Double) (Math.random() * 1000000));
+            /**
+             * NOTE: do not make the random numbers interval huge when using the countingSort
+             * to avoid having to declare and occurence store with a huge length
+             */
+            this.array[i] = new Element((Double) (Math.random() * 1000));
         }
     }
 
@@ -58,7 +62,7 @@ public class ArraySort {
 
             while (j < lastSwapIndex) {
 
-                if (this.array[j + 1].getId() < this.array[j].getId()) {
+                if (this.array[j + 1].id < this.array[j].id) {
                     // swap them
                     temp = this.array[j + 1];
                     this.array[j + 1] = this.array[j];
@@ -97,7 +101,7 @@ public class ArraySort {
 
         for (; j > start; j--) {
 
-            if (this.array[j].getId() > this.array[start].getId()) {
+            if (this.array[j].id > this.array[start].id) {
                 // decrement the i index
                 i--;
                 // swap them
@@ -136,11 +140,11 @@ public class ArraySort {
 
     public ArraySort countSort() {
         // we only calculate the max, since the ids are supposed to be positive
-        int max = this.array[0].getId();
+        int max = this.array[0].id;
 
         for (int i = 0; i < this.size; i++) {
-            if (this.array[i].getId() > max)
-                max = this.array[i].getId();
+            if (this.array[i].id > max)
+                max = this.array[i].id;
         }
         // create our occurences list, the length is equal to max + 1, since the
         // max should be on the occurenceStore
@@ -150,7 +154,7 @@ public class ArraySort {
 
         // calculate the occurences
         for (int i = 0; i < this.size; i++) {
-            occurenceStore[this.array[i].getId()]++;
+            occurenceStore[this.array[i].id]++;
         }
 
         // complementation
@@ -165,17 +169,17 @@ public class ArraySort {
 
             // create an element with the correct content to make the sorting
             // stable
-            el = new Element(this.array[i].getContent());
+            el = new Element(this.array[i].content);
             // set the correct id
-            el.setId(this.array[i].getId());
+            el.id = this.array[i].id;
 
             // populate the right slot on the res array
-            res.array[occurenceStore[this.array[i].getId()] - 1] = el;
+            res.array[occurenceStore[this.array[i].id] - 1] = el;
 
             // decrement the occurence of the element, since
             // we can have multiple occurences, and by doing so, we
             // automaticlly calculate the right index for the next occurence.
-            occurenceStore[this.array[i].getId()]--;
+            occurenceStore[this.array[i].id]--;
         }
 
         return res;
