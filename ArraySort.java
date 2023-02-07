@@ -40,13 +40,27 @@ public class ArraySort {
 
         for (int i = 0; i < this.size; i++) {
             /**
-             * NOTE: do not make the random numbers interval huge when using the countingSort
+             * NOTE: do not make the random numbers interval huge when using the
+             * countingSort
              * to avoid having to declare and occurence store with a huge length
              */
             this.array[i] = new Element((Double) (Math.random() * 1000));
         }
     }
 
+    /**
+     * 
+     * This bubbleSort impelemntation is optemized twice.
+     * 
+     * the first optimisation is done with the swap flag
+     * 
+     * the second is done by reducing the lenght of the
+     * array to sort by tracking the lastChangeIndex, which
+     * is exactly the index that will define the new limit
+     * for our walkthrough
+     * 
+     * @param void
+     */
     public void bubbleSort() {
 
         boolean swap = true;
@@ -80,6 +94,17 @@ public class ArraySort {
         }
     }
 
+    /**
+     * 
+     * @param start - start index of the current partition to sort.
+     * @param end   - end index of the current partition to sort.
+     * 
+     *              This quickSort implementation is recursive, and
+     *              uses a helper function to do the partitionning
+     *              work.
+     * 
+     * 
+     */
     public void quickSort(int start, int end) {
         // base case
         if (end <= start)
@@ -93,6 +118,17 @@ public class ArraySort {
         quickSort(pivot + 1, end);
     }
 
+    /**
+     * 
+     * @param start - start index of the current partition to sort.
+     * @param end   - end index of the current partition to sort.
+     * @return {@value} int - the next pivot index
+     * 
+     *         This helper function will iteratively walktrough the partition
+     *         determined by the start and end indecies, and rearrange the elements
+     *         by comparing them to the choosed pivot. In this flavor the pivot is
+     *         choosed to be the first element of the partition.
+     */
     public int partition(int start, int end) {
 
         int i = end + 1;
@@ -124,20 +160,25 @@ public class ArraySort {
     }
 
     /**
-     * This is countSort
+     * countSort
      * 
-     * we will iterate all the elements set to:
-     * Find out the max.
-     * Declare an occurence array of ints, with a length equal to the max value
-     * Iterate through our set of elements and calculate the occurences.
+     * @param void
      * 
-     * Reiterate throught the occurence array to progressivly complement the slots
-     * using the following schema:
-     * on slot N, the occurence will be equal to the value of the slot N- 1 + the
-     * occurence of the value N on the elements set.
+     *             we will iterate through all the elements set to:
+     *             Find out the max.
+     *             Declare an occurence array of ints (since our comparison is based
+     *             on the key values which are ints),
+     *             with a length equal to the max value
+     *             Iterate through our set of elements and calculate the occurences.
+     * 
+     *             Reiterate through the occurence array to progressivly complement
+     *             the slots
+     *             using the following schema:
+     *             on slot N, the occurence will be equal to the value of the slot
+     *             N- 1 + the
+     *             occurence of the value N on the elements set.
      * 
      */
-
     public ArraySort countSort() {
         // we only calculate the max, since the ids are supposed to be positive
         int max = this.array[0].id;
