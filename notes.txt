@@ -45,30 +45,3 @@
      * our input list.
      * 
      */
-
-     /*** Note very optimized */
-
-    // public void bubbleSort() {
-
-    // boolean swap = true;
-    // int j = 0;
-    // Element temp;
-
-    // for (int i = 0 ; i < this.size && swap ; i++) {
-    // swap = false;
-    // j = 0;
-    // while (j < this.size - 1 - i) {
-
-    // if (this.array[j + 1].getId() < this.array[j].getId()) {
-    // swap them
-    // temp = this.array[j+1];
-    // this.array[j+1] = this.array[j];
-    // this.array[j] = temp;
-
-    // set the swap flag to true
-    // swap = true;
-    // }
-    // j++;
-    // }
-    // }
-    // }

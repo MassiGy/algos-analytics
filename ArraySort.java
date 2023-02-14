@@ -49,15 +49,18 @@ public class ArraySort {
     }
 
     /**
+     * Bubble Sort
      * 
-     * This bubbleSort impelemntation is optemized twice.
      * 
-     * the first optimisation is done with the swap flag
+     * @description
+     *              This bubbleSort impelemntation is optemized twice.
      * 
-     * the second is done by reducing the lenght of the
-     * array to sort by tracking the lastChangeIndex, which
-     * is exactly the index that will define the new limit
-     * for our walkthrough
+     *              the first optimisation is done with the swap flag
+     * 
+     *              the second is done by reducing the lenght of the
+     *              array to sort by tracking the lastChangeIndex, which
+     *              is exactly the index that will define the new limit
+     *              for our walkthrough
      * 
      * @param void
      */
@@ -95,10 +98,13 @@ public class ArraySort {
     }
 
     /**
+     * Quick Sort
+     * 
      * 
      * @param start - start index of the current partition to sort.
      * @param end   - end index of the current partition to sort.
      * 
+     * @description
      *              This quickSort implementation is recursive, and
      *              uses a helper function to do the partitionning
      *              work.
@@ -122,12 +128,13 @@ public class ArraySort {
      * 
      * @param start - start index of the current partition to sort.
      * @param end   - end index of the current partition to sort.
-     * @return {@value} int - the next pivot index
+     * @return {Int} - the next pivot index
      * 
-     *         This helper function will iteratively walktrough the partition
-     *         determined by the start and end indecies, and rearrange the elements
-     *         by comparing them to the choosed pivot. In this flavor the pivot is
-     *         choosed to be the first element of the partition.
+     * @description
+     *              This helper function will iteratively walktrough the partition
+     *              determined by the start and end indecies, and rearrange the
+     *              elements by comparing them to the choosed pivot. In this flavor
+     *              the pivot is choosed to be the first element of the partition.
      */
     public int partition(int start, int end) {
 
@@ -160,23 +167,30 @@ public class ArraySort {
     }
 
     /**
-     * countSort
+     * Counting Sort
      * 
      * @param void
      * 
-     *             we will iterate through all the elements set to:
-     *             Find out the max.
-     *             Declare an occurence array of ints (since our comparison is based
-     *             on the key values which are ints),
-     *             with a length equal to the max value
-     *             Iterate through our set of elements and calculate the occurences.
+     * @description
+     *              we will iterate through all the elements set to:
+     *              Find out the max.
+     *              Declare an occurence array of ints (since our comparison is
+     *              based
+     *              on the key values which are ints),
+     *              with a length equal to the max value
+     *              Iterate through our set of elements and calculate the
+     *              occurences.
      * 
-     *             Reiterate through the occurence array to progressivly complement
-     *             the slots
-     *             using the following schema:
-     *             on slot N, the occurence will be equal to the value of the slot
-     *             N- 1 + the
-     *             occurence of the value N on the elements set.
+     *              Reiterate through the occurence array to progressivly complement
+     *              the slots
+     *              using the following schema:
+     *              on slot N, the occurence will be equal to the value of the slot
+     *              N- 1 + the
+     *              occurence of the value N on the elements set.
+     * 
+     * @note
+     *       Avoid using large values along side the countingSort, since this
+     *       will make the auxilary space higher.
      * 
      */
     public ArraySort countSort() {
