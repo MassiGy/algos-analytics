@@ -6,14 +6,16 @@
 ```BASH
 
     .
-    ├── ArraySort.java
-    ├── Element.java
-    ├── Main.java
-    ├── notes.txt
-    └── README.md
+    ├── doc
+    │   ├── notes.txt
+    │   └── report.pdf
+    ├── README.md
+    └── src
+        ├── ArraySort.java
+        ├── Element.java
+        └── Main.java
 
-    0 directories, 5 files
-
+    2 directories, 6 files
 
 ```
 
