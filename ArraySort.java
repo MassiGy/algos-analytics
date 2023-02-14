@@ -175,22 +175,21 @@ public class ArraySort {
      *              we will iterate through all the elements set to:
      *              Find out the max.
      *              Declare an occurence array of ints (since our comparison is
-     *              based
-     *              on the key values which are ints),
+     *              based on the key values which are ints),
      *              with a length equal to the max value
+     * 
      *              Iterate through our set of elements and calculate the
      *              occurences.
      * 
      *              Reiterate through the occurence array to progressivly complement
-     *              the slots
-     *              using the following schema:
+     *              the slots using the following schema:
+     * 
      *              on slot N, the occurence will be equal to the value of the slot
-     *              N- 1 + the
-     *              occurence of the value N on the elements set.
+     *              N- 1 + thecoccurence of the value N on the elements set.
      * 
      * @note
-     *       Avoid using large values along side the countingSort, since this
-     *       will make the auxilary space higher.
+     *       using large values along side the countingSort, since this
+     *       ake the auxilary space higher.
      * 
      */
     public ArraySort countSort() {
